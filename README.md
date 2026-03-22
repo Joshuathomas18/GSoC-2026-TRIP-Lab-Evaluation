@@ -22,7 +22,7 @@ First, I profiled the amplitude of the conversation over time to identify natura
 ### Frequency-Domain Analysis (Mel-Spectrogram)
 Next, I generated a Mel-Spectrogram to visualize the density of the background interference. 
 
-![Raw Spectrogram](assets/raw_spectrogram.jpg)
+![Raw Spectrogram](assets/raw_spectrogram.png)
 > **Engineering Inference:** The dense "purple haze" covering the entire 3-minute baseline represents a constant, high-density static noise floor. Standard DSP filters (like high-pass/low-pass) would aggressively muffle the active speech here. A deep learning approach is required to surgically separate the noise from the vocal formants.
 
 ---
@@ -30,7 +30,7 @@ Next, I generated a Mel-Spectrogram to visualize the density of the background i
 ##  Step 2: Deep Denoising Architecture
 To neutralize the noise floor, the audio is passed through **Meta's DNS64**, a U-Net neural network architecture. Unlike traditional filters, the U-Net is trained to isolate human vocal frequencies and push background static to digital zero.
 
-![Spectrogram Comparison](assets/comparison.jpg)
+![Spectrogram Comparison](Assets/comparison.png)
 > **Engineering Inference:** The visual proof is undeniable. The left image shows the raw baseline saturated with static. The right image shows the enhanced output: the noise floor has been completely suppressed (black void) while the critical vocal frequencies (bright orange/pink bands) are perfectly preserved for downstream extraction.
 
 ---
